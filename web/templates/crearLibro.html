@@ -1,0 +1,37 @@
+{% extends 'base.html' %}  
+{% block content %}
+    <div class="container mt-5" >
+        <h4 style="text-align: center;">Crea un Nuevo Libro</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{% url 'index' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_nombre" class="form-label">Nombre</label>
+                            {{ form.nombre }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_autor" class="form-label">Autor(a)</label>
+                            {{ form.autor }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_isbn" class="form-label">ISBN</label>
+                            {{ form.isbn }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_categoria" class="form-label">Categoría</label>
+                            {{ form.categoria }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_tipo" class="form-label">Tipo</label>
+                            {{ form.tipo }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-20">Crear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 

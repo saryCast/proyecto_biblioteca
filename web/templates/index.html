@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <form method="GET" class="mb-4">
+        {{ form }}
+    </form>
+
+    <table class="table table-bordered table-striped table-success">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="text-center">Libro</div>
+            
+          </th>
+          <th scope="col">
+            <div class="text-center">Autor</div>
+            
+          </th>
+          <th scope="col">
+            <div class="text-center">Categoria</div>
+            
+          </th><td></td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.nombre }}</td>
+            <td>{{ libro.autor }}</td>
+            <td>{{ libro.categoria }}</td>
+            <td>
+                <a href="{% url 'arrendar' libro.id  %}" class="btn btn-info">Arrendar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+  
+  </div>
+{% endblock %}
